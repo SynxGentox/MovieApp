@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct MovieAppApp: App {
+    @State private var store = MovieStore()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(store)
         }
     }
 }
+
+
+

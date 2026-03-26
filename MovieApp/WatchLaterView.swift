@@ -21,18 +21,16 @@ struct WatchLaterView: View {
             List(store.watchLaterMovies) { movie in
                 NavigationLink(destination: MovieDetailedView(movie: movie)) {
                     HStack {
-                        Image(movie.imageName)
-                            .resizable()
-                            .scaledToFill()
+                        MoviePoster(imageURL: movie.Poster)
                             .frame(width: 70, height: 70)
                             .clipped()
                             .padding(.trailing)
                                 
                         VStack(alignment: .leading) {
-                            Text(movie.title)
+                            Text(movie.Title)
                                 .font(.system(size: 20, weight: .regular))
                             Text(
-                                "\(movie.genre),    Rating: \(movie.rating.formatted())"
+                                "Hentai,    Rating: 6.9/10"
                             )
                             .font(.system(size: 14, weight: .regular))
                             Spacer()

@@ -21,18 +21,16 @@ struct FavouriteMovies: View {
             List(store.likedMovies) { movie in
                 NavigationLink(destination: MovieDetailedView(movie: movie)) {
                     HStack {
-                        Image(movie.imageName)
-                            .resizable()
-                            .scaledToFill()
+                        MoviePoster(imageURL: movie.Poster)
                             .frame(width: 70, height: 70)
                             .clipped()
                             .padding(.trailing)
                                 
                         VStack(alignment: .leading) {
-                            Text(movie.title)
+                            Text(movie.Title)
                                 .font(.system(size: 20, weight: .regular))
                             Text(
-                                "\(movie.genre),    Rating: \(movie.rating.formatted())"
+                                "Sci-Fi,    Rating: 9/10 "
                             )
                             .font(.system(size: 14, weight: .regular))
                             Spacer()
@@ -46,8 +44,6 @@ struct FavouriteMovies: View {
 
 #Preview {
     let store =  MovieStore()
-    store.toggleLike(for: store.movies[0])
-    store.toggleLike(for: store.movies[1])
-    return FavouriteMovies()
+    FavouriteMovies()
         .environment(store)
 }
